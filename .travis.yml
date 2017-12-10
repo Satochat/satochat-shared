@@ -1,0 +1,22 @@
+language: csharp
+mono: none
+dotnet: 2.0.0
+dist: trusty
+sudo: false
+
+notifications:
+  email: false
+
+install:
+  - ./scripts/ci/strong-name-key.sh
+  - dotnet restore --source "$NUGET_SOURCE_URL"
+
+script:
+  - dotnet test *.Test
+
+deploy:
+  - provider: script
+    script: ./scripts/ci/deploy-nuget.sh $(./scripts/ci/version-suffix.sh)
+    skip_cleanup: true
+    on:
+      branch: master
