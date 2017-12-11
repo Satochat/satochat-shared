@@ -1,4 +1,4 @@
-# Satochat shared library
+﻿# Satochat shared library [![Build Status](https://travis-ci.org/Satochat/satochat-shared.svg?branch=master)](https://travis-ci.org/Satochat/satochat-shared)
 
 Stuff that the Satochat server and client share.
 
